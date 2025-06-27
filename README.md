@@ -1,5 +1,3 @@
-# Online-plaza
-< online marketing zone to Meet sellers/buyers
 <!DOCTYPE html>
 <html lang="sw">
 <head>
@@ -40,8 +38,14 @@
     }
     .disabled {
       background: #ccc;
-      cursor: not-allowed; } </style></head><body>
-  <header> <h1>Karibu Online Plaza</h1>
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Karibu Online Plaza</h1>
     <p>Soko la Mtandaoni - Tangaza Bidhaa au Huduma Yako</p>
   </header>
 
@@ -55,29 +59,45 @@
     <h3>Tuma Tangazo Lako</h3>
     <p><strong>LIPA KWANZA:</strong> Airtel Money: <strong>0780 596 868</strong></p>
     <p>Baada ya malipo, weka jina la mlipaji na pakia tangazo lako:</p>
- <label>Jina la Mlipaji:</label>
+
+    <label>Jina la Mlipaji:</label>
     <input type="text" id="payerName" placeholder="Jina lililotumika kulipia">
- <label>Jina la Tangazo:</label>
+
+    <label>Jina la Tangazo:</label>
     <input type="text" id="adTitle" placeholder="Mfano: Simu Mpya Ya Samsung">
- <label>Maelezo:</label>
+
+    <label>Maelezo:</label>
     <textarea id="adDescription" rows="4" placeholder="Andika maelezo ya tangazo lako hapa..."></textarea>
- <label>Pakia Picha au Video:</label>
+
+    <label>Pakia Picha au Video:</label>
     <input type="file" id="adMedia" accept="image/*,video/*">
- <button id="submitBtn" class="disabled" disabled>Tuma Tangazo</button>
-<p style="color: red;" id="statusMsg"></p>
+
+    <button id="submitBtn" class="disabled" disabled>Tuma Tangazo</button>
+
+    <p style="color: red;" id="statusMsg"></p>
   </section>
- <script>
+
+  <script>
     const payerName = document.getElementById("payerName");
     const submitBtn = document.getElementById("submitBtn");
     const statusMsg = document.getElementById("statusMsg");
- payerName.addEventListener("input", () => {if (payerName.value.trim().length >= 3) {
+
+    payerName.addEventListener("input", () => {
+      if (payerName.value.trim().length >= 3) {
         submitBtn.disabled = false;
-    submitBtn.classList.remove("disabled");
+        submitBtn.classList.remove("disabled");
         statusMsg.textContent = "";
       } else {
         submitBtn.disabled = true;
         submitBtn.classList.add("disabled");
-        statusMsg.textContent = "Tafadhali weka jina la mlipaji kwanza.";  }  });submitBtn.addEventListener("click", () => {alert("Tangazo lako limepokelewa. Tutathibitisha malipo na kulionyesha.") }); </script>
+        statusMsg.textContent = "Tafadhali weka jina la mlipaji kwanza.";
+      }
+    });
+
+    submitBtn.addEventListener("click", () => {
+      alert("Tangazo lako limepokelewa. Tutathibitisha malipo na kulionyesha.");
+    });
+  </script>
+
 </body>
 </html>
-        
