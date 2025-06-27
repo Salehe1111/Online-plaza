@@ -1,98 +1,83 @@
 # Online-plaza
-Meet sellers/ buyers
+< online marketing zone to Meet sellers/buyers
 <!DOCTYPE html>
 <html lang="sw">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Plaza</title>
+  <title>Online Plaza - Advertise</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
     }
     header {
-      background-color: #007bff;
+      background: #007bff;
       color: white;
-      padding: 15px;
       text-align: center;
+      padding: 20px;
     }
-    nav a {
-      margin: 10px;
-      text-decoration: none;
-      color: #333;
-    }
-    .product {
+    .ad-section {
       background: white;
-      padding: 15px;
-      margin: 10px;
-      border-radius: 8px;
-      box-shadow: 0 0 5px gray;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px gray;
     }
-    footer {
-      background: #333;
-      color: white;
-      padding: 10px;
-      text-align: center;
-      position: fixed;
+    input, textarea, select {
       width: 100%;
-      bottom: 0;
+      padding: 10px;
+      margin: 8px 0;
     }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Online Plaza</h1>
-    <p>Soko la Mtandaoni kwa Bidhaa na Matangazo</p>
+    button {
+      padding: 10px 15px;
+      background: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .disabled {
+      background: #ccc;
+      cursor: not-allowed; } </style></head><body>
+  <header> <h1>Karibu Online Plaza</h1>
+    <p>Soko la Mtandaoni - Tangaza Bidhaa au Huduma Yako</p>
   </header>
 
-  <nav>
-    <a href="#home">Nyumbani</a>
-    <a href="#products">Bidhaa</a>
-    <a href="#ads">Matangazo</a>
-    <a href="#payment">Malipo</a>
-    <a href="#contact">Wasiliana Nasi</a>
-  </nav>
+  <section class="ad-section">
+    <h2>📢 Matangazo ya Wengine</h2>
+    <p>👉 Tangaza bidhaa au huduma yako hapa.</p>
+    <button onclick="document.getElementById('adForm').style.display='block'">Advertise Now</button>
+  </section>
 
-  <main>
-    <section id="products">
-      <h2>Bidhaa Maarufu</h2>
-      <div class="product">
-        <h3>Simu ya Samsung A14</h3>
-        <p>Bei: TSh 450,000</p>
-        <button>Nunua Sasa</button>
-      </div>
-      <div class="product">
-        <h3>Viatu vya Mavazi</h3>
-        <p>Bei: TSh 65,000</p>
-        <button>Nunua Sasa</button>
-      </div>
-    </section>
-<section id="ads">
-      <h2>Matangazo Yanayopatikana</h2>
-      <p>Matangazo ya biashara, huduma, bidhaa n.k.</p>
-    </section>
-<section id="payment">
-      <h2>Njia za Malipo</h2>
-      <ul>
-        <li>Tenmapesa / TigoPesa / M-Pesa</li>
-        <li>Airtel Money / Halopesa</li>
-        <li>Benki: CRDB, NMB, NBC</li>
-      </ul>
-    </section>
-<section id="contact">
-      <h2>Wasiliana Nasi</h2>
-      <p>Email: onlineplaza@example.com</p>
-      <p>WhatsApp: +255 XXX XXX XXX</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Online Plaza. All rights reserved.</p>
-  </footer>
-
+  <section id="adForm" class="ad-section" style="display: none;">
+    <h3>Tuma Tangazo Lako</h3>
+    <p><strong>LIPA KWANZA:</strong> Airtel Money: <strong>0780 596 868</strong></p>
+    <p>Baada ya malipo, weka jina la mlipaji na pakia tangazo lako:</p>
+ <label>Jina la Mlipaji:</label>
+    <input type="text" id="payerName" placeholder="Jina lililotumika kulipia">
+ <label>Jina la Tangazo:</label>
+    <input type="text" id="adTitle" placeholder="Mfano: Simu Mpya Ya Samsung">
+ <label>Maelezo:</label>
+    <textarea id="adDescription" rows="4" placeholder="Andika maelezo ya tangazo lako hapa..."></textarea>
+ <label>Pakia Picha au Video:</label>
+    <input type="file" id="adMedia" accept="image/*,video/*">
+ <button id="submitBtn" class="disabled" disabled>Tuma Tangazo</button>
+<p style="color: red;" id="statusMsg"></p>
+  </section>
+ <script>
+    const payerName = document.getElementById("payerName");
+    const submitBtn = document.getElementById("submitBtn");
+    const statusMsg = document.getElementById("statusMsg");
+ payerName.addEventListener("input", () => {if (payerName.value.trim().length >= 3) {
+        submitBtn.disabled = false;
+    submitBtn.classList.remove("disabled");
+        statusMsg.textContent = "";
+      } else {
+        submitBtn.disabled = true;
+        submitBtn.classList.add("disabled");
+        statusMsg.textContent = "Tafadhali weka jina la mlipaji kwanza.";  }  });submitBtn.addEventListener("click", () => {alert("Tangazo lako limepokelewa. Tutathibitisha malipo na kulionyesha.") }); </script>
 </body>
 </html>
+        
